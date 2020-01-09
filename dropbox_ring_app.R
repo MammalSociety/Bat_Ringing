@@ -147,7 +147,7 @@ shinyApp(
       filesInfo <- drop_dir(outputDir)
       filePaths <- filesInfo$path_display
       data <- lapply(filePaths, drop_read_csv, stringsAsFactors = FALSE)
-      # Concatenate all data together into one data.frame
+      # Concatenate all data together into one data.frame - doesn't seem to do this atm
       data <- do.call(rbind, data)
       data
     }
@@ -157,9 +157,8 @@ shinyApp(
       saveData(formData())
     })
     
-    
     observeEvent(input$submit, {
-      saveData(formData())
+    saveData(formData())
       shinyjs::reset("form")
       shinyjs::hide("form")
       shinyjs::show("thankyou_msg")
@@ -176,7 +175,7 @@ shinyApp(
       shinyjs::hide("error")
       
       tryCatch({
-        saveData(formData())
+       saveData(formData())
         shinyjs::reset("form")
         shinyjs::hide("form")
         shinyjs::show("thankyou_msg")
