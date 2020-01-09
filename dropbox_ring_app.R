@@ -1,7 +1,6 @@
 #Current issues: 
-# 1) Makes the previous files visible
-# 2) csv it outputs has no column headers
-# 3) It's saving three versions of the same csv to dropbox
+# 1) It's saving three versions of the same csv to dropbox
+# 2) Tick box isn't registered as a mandatory field
 
 
 library(shiny)
@@ -69,7 +68,7 @@ shinyApp(
     shinyjs::useShinyjs(),
     shinyjs::inlineCSS(appCSS),
     titlePanel("Bat Colour Ringing"),
-    DT::dataTableOutput("responsesTable"),
+    #DT::dataTableOutput("responsesTable"),
     div(
       id = "form",
       
@@ -86,7 +85,7 @@ shinyApp(
       textInput("Email", labelMandatory("Email"), ""),
       textInput("Notes", "Notes", ""),
       checkboxInput("permission",
-                    "My submitting this form I agree to displaying 
+                    "By submitting this form I agree to displaying 
                     my email address", FALSE),
       actionButton("submit", "Submit", class = "btn-primary"),
       shinyjs::hidden(
