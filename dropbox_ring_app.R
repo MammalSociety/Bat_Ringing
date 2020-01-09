@@ -1,9 +1,7 @@
-
 #Current issues: 
-# 1) csv it outputs has no column headers
-# 2) It's saving three versions of the same csv to dropbox
-# 3) On Shiny.io doesn't let you submit, assume can't access dropbox
-# 4) Need to get Ecobat logo on the form, ui/www files?
+# 1) Makes the previous files visible
+# 2) csv it outputs has no column headers
+# 3) It's saving three versions of the same csv to dropbox
 
 
 library(shiny)
@@ -14,7 +12,7 @@ library(rdrop2)
 
 ##################################################################
 
-#Use the following hashed lines to get and saave the droptoken 
+#Use the following hashed lines to get and save the droptoken 
 #from dropbox:
 
 #token <- drop_auth()
@@ -22,8 +20,9 @@ library(rdrop2)
 
 ###################################################################
 
-#Access to dropbox account where it will save the data
-token <- readRDS("droptoken.rds")
+#Authenticates dropbox globally
+drop_auth(rdstoken = "droptoken.rds")
+drop_acc()
 
 
 # define mandatory fields
@@ -73,6 +72,10 @@ shinyApp(
     DT::dataTableOutput("responsesTable"),
     div(
       id = "form",
+      
+      h5(img(src= "ecobat-logo.png", heigth=100, width=100, 
+             style="display: block; margin-left: 
+             margin-right: auto;")),
       
       textInput("Name", labelMandatory("Name"), ""),
       textInput("Organisation", "Organisation", ""),
@@ -196,3 +199,4 @@ shinyApp(
     ) 
   }
 )
+
