@@ -1,6 +1,6 @@
 #Current issues: 
 # 1) It's saving three versions of the same csv to dropbox
-# 2) Tick box isn't registered as a mandatory field
+# 2) Need to take token off Github
 
 
 library(shiny)
