@@ -1,2 +1,4 @@
-.httr-oauth
-droptoken
+droptoken.rds
+.httr-oauth.httr.oauth
+.Rhistory
+rsconnect
