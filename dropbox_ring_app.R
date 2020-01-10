@@ -25,7 +25,7 @@ drop_acc()
 
 
 # define mandatory fields
-fieldsMandatory <- c("Name", "Location", "Species", "Ring Colour", "Ring Location", "Email", "permission")
+fieldsMandatory <- c("Name", "Location", "Species", "Ring Colour", "Ring Location", "Email")
 
 # add asterisk to mandatory fields
 labelMandatory <- function(label) {
@@ -84,10 +84,11 @@ shinyApp(
       textInput("Ring Location", labelMandatory("Ring location"), ""),
       textInput("Email", labelMandatory("Email"), ""),
       textInput("Notes", "Notes", ""),
-      checkboxInput("permission",
-                    "By submitting this form I agree to displaying 
-                    my email address", FALSE),
-      actionButton("submit", "Submit", class = "btn-primary"),
+      #checkboxInput("permission",
+                   # "By submitting this form I agree to displaying 
+                   # my email address", FALSE),
+      strong("By submitting this form you agree to the displaying of your email address"),
+      br(actionButton("submit", "Submit", class = "btn-primary")),
       shinyjs::hidden(
         span(id = "submit_msg", "Submitting..."),
         div(id = "error",
