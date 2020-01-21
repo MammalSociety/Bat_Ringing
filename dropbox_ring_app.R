@@ -15,12 +15,12 @@ library(rdrop2)
 #from dropbox:
 
 #token <- drop_auth()
-#saveRDS(token, "droptoken.rds")
+#saveRDS(token, "droptokenNew.rds")
 
 ###################################################################
 
 #Authenticates dropbox globally
-drop_auth(rdstoken = "droptoken.rds")
+drop_auth(rdstoken = "droptokenNew.rds")
 drop_acc()
 
 
